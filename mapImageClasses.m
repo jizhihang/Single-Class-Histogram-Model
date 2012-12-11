@@ -1,0 +1,57 @@
+%
+%Florian Schroff (schroff@robots.ox.ac.uk)
+%Engineering Departement 
+%University of Oxford, UK
+%
+%Copyright (c) 2009, Florian Schroff
+%All rights reserved.
+%
+%Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+%
+%    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+%    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+%    * Neither the name of the University of Oxford nor Microsoft Ltd. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+%
+%THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+%
+%
+%Please cite the following publication(s) in published work that used or was inspired by this code/work:
+%
+%- Schroff, F. , Criminisi, A. and Zisserman, A.: Object Class Segmentation using Random Forests, Proceedings of the British Machine Vision Conference (2008) 
+%
+%
+%get groundtruth for coordinates passed as input
+%void/unlabelled classes will be labeled higher than all object classes: [objectclasses void unlabelled...]
+
+function [img, nr_classes]=mapImageClasses(image, params)
+switch params.Database
+    case {'ms_db'}
+        nr_classes = params.nrObjectClasses+1;
+
+    otherwise
+        error('unknown database');
+end
+if ischar(image) && strcmp(image,'')
+    img=[];
+    return
+end
+
+global CLSmapping;
+gthist=[];
+if ischar(image)
+    img=imread(image);
+else
+    img=image;
+end
+
+switch params.Database
+    case {'ms_db'}
+        if ischar(image) && ~isempty(regexp(image,'.bmp$'))
+            img=double(rgb2ind(img,CLSmapping.colormap_GT,'nodither'));
+        end
+        img(img==0) = params.nrObjectClasses+1; %set void to be above all classes, nr_classes is all classes incl. void (msmapping includes void)
+        img = double(img);
+
+    otherwise
+        error('unknown database');
+end

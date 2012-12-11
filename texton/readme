@@ -1,0 +1,14 @@
+Readme file for texton-map
+
+Developed by Rohanj and Mridulv @ IIT Kanpur
+
+To generate texton-map for some set of files use imagew.m
+	> Adjust the database source path accordingly
+	> Adjust the value of k by your requirement. By default it is 400.
+	> The texton maps of images in src folder will be saved as .jpg files in current folder
+	> tq is the matrix storing coordinates of the k cluster centers. Its size depends on k and window size.
+
+To embed the code into RF_segment code:-
+	> copy the folder as it is in the folder "default"
+	> the file do_lpd.m will call functions computeclusters and computeTextonMap
+	> use the code for SHCM to generate SHCM for each class

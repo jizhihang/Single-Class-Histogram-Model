@@ -1,0 +1,13 @@
+Generating SHCM for MSRC Data-set
+
+Developed by Rohanj and Mridulv
+
+> Currently there are different matlab files for different classes.
+> File shcm1.m will generate SHCM for class 1 and so on.
+> Each file requires texton-map.mat file to be present in the current folder, which is the coordinates of 
+various textons computed earlier.
+> When you run each file it will generate resultsforclass[i].mat where i is the class i.
+resultsforclass1.mat will be generated for class 1
+
+
+

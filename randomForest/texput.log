@@ -1,0 +1,14 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2012/dev/Arch Linux) (format=mex 2012.4.7)  12 APR 2012 00:48
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+** -I/usr/local/MATLAB/R2011b/extern/include -I../ CXXOPTIMFLAGS=-O2  -ffast-ma
+th LDCXXOPTIMFLAGS=-O2  -ffast-math LDOPTIMFLAGS=-O2  -ffast-math pdDecTree.cxx
+
+
+! Emergency stop.
+<*>  -I/usr/local/MATLAB/R2011b/extern/include 
+                                               -I../ CXXOPTIMFLAGS=-O2  -ffa...
+End of file on the terminal!
+
+No pages of output.
