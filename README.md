@@ -1,7 +1,11 @@
 Single-Class-Histogram-Model
 ============================
 
+<<<<<<< HEAD
 Implementing Single Class Histogram Model and Texton Model For Image Segmentation
+=======
+Segmenting Images using random forest using Single Histogram Class Model(SHCM) based on Textons as a Node-Test
+>>>>>>> 4350f1f81b31542d98eae8ff54f269a89d6676d1
 
 The code is developed as a part of project in Artificial Intellegence
 < developed by rohanj and mrodulv @ IIT Kanpur >
