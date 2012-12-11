@@ -38,6 +38,8 @@ To run the code released by F. Schroff:-
 	> for first try you may comment the other two function calls
 	> for understanding what the parameters passed to metarec mean see the file metarec.m
 
+For more Info see the link:
+http://home.iitk.ac.in/~mridulv/cs365/projects/
 
 
 For any clarification you may contact:
